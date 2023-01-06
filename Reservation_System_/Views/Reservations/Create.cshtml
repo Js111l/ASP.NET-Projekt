@@ -1,0 +1,41 @@
+﻿@model System_rezerwacji_sal.Models.Reservation
+
+
+
+<h4>Rezerwacja</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="StartReservation" class="control-label"></label>
+                <input min=@DateTime.Now.ToString("yyyy-MM-ddThh:mm") max=@DateTime.Now.AddMonths(5).ToString("yyyy-MM-ddThh:mm")
+                       asp-for="StartReservation" class="form-control" />
+                <span asp-validation-for="StartReservation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndReservation" class="control-label"></label>
+                <input type="time" min="00:00" max="04:00"
+                       asp-for="EndReservation" class="form-control" />
+                <span asp-validation-for="EndReservation" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Zarezerwuj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="RoomList" asp-controller="Rooms">Powróć</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

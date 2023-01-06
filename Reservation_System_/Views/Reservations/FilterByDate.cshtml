@@ -1,0 +1,35 @@
+﻿@model System_rezerwacji_sal.Models.Reservation
+
+<h4>Reservation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FilterByDate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="StartReservation" class="control-label">Rezerwacja od</label>
+                <input asp-for="StartReservation" class="form-control" />
+                <span asp-validation-for="StartReservation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndReservation" class="control-label">Rezerwacja do</label>
+                <input asp-for="EndReservation" class="form-control" />
+                <span asp-validation-for="EndReservation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zarezerwuj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Powrót do listy</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

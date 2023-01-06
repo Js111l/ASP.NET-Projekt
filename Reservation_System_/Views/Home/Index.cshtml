@@ -1,0 +1,65 @@
+﻿@model IEnumerable<System_rezerwacji_sal.Models.Reservation>
+
+@{
+    if (User.Identity.IsAuthenticated)
+    {
+        <h3> Twoje rezerwacje: </h3>
+
+
+        var nameOfUser = User.Identity.Name;
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RoomId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartReservation)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndReservation)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Where(x => x.Name.Equals(nameOfUser)).OrderByDescending(x => x.StartReservation))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RoomId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartReservation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndReservation)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.Id" asp-controller="Reservations">Sczegóły</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id" asp-controller="Reservations">Usuń</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+
+
+
+    }
+    else
+    {
+        <h3> Prosze się zalogować</h3>
+    }
+}
+

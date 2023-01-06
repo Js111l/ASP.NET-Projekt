@@ -1,0 +1,51 @@
+﻿@model IEnumerable<System_rezerwacji_sal.Models.Room>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numberOfSeats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hasProjector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roomType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hasAirConditioner)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numberOfSeats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hasProjector)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.roomType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hasAirConditioner)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

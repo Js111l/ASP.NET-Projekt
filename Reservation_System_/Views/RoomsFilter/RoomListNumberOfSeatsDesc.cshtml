@@ -1,0 +1,70 @@
+﻿@model IEnumerable<System_rezerwacji_sal.Models.Room>
+
+@{
+    ViewData["Title"] = "Lista sal";
+}
+
+
+<p>
+    <a asp-action="RoomListNumberOfSeatsAsc" asp-controller="RoomsFilter">Ilość miejsc: od najmniejszej</a>
+</p>
+<p>
+    <a asp-action="RoomListNumberOfSeatsDesc" asp-controller="RoomsFilter">Ilość miejsc: od największej</a>
+</p>
+<p>
+    <a asp-action="RoomListRoomNumberDesc" asp-controller="RoomsFilter">Numer pokoju: malejąco</a>
+</p>
+<p>
+    <a asp-action="RoomListRoomNumberAsc" asp-controller="RoomsFilter">Numer pokoju: rosnąco</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model=>model.number)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numberOfSeats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hasProjector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roomType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hasAirConditioner)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderByDescending(x => x.numberOfSeats))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numberOfSeats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hasProjector)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.roomType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hasAirConditioner)
+                </td>
+                <td>
+                    <a asp-action="Create" asp-controller="Reservations" asp-route-id="@item.number">Zrób Rezerwacje</a> |
+                    <a asp-action="Index" asp-controller="Reservations" asp-route-id="@item.number">Pokaż Rezerwacje</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

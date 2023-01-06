@@ -1,0 +1,25 @@
+﻿@model Reservation_System_.Models.ViewModels.LoginViewModel
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmailProvider" class="control-label"></label>
+                <input asp-for="EmailProvider" class="form-control" required />
+                <span asp-validation-for="EmailProvider" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordProvider" class="control-label"></label>
+                <input asp-for="PasswordProvider" class="form-control" required />
+                <span asp-validation-for="PasswordProvider" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zaloguj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

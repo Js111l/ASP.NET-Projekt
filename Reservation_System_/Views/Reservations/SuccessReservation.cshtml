@@ -1,0 +1,55 @@
+﻿@model IEnumerable<System_rezerwacji_sal.Models.Reservation>
+
+@{
+
+}
+
+<h3>Pomyślnie dokonałeś rezerwacji!</h3>
+<h5>Twoja rezerwacja: </h5>
+<p>
+    <a asp-action="RoomList" asp-controller="Rooms">Powróć</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartReservation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndReservation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderByDescending(x => x.StartReservation))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartReservation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndReservation)
+                </td>
+                <td>
+
+                    <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

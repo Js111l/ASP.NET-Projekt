@@ -1,0 +1,40 @@
+﻿@model System_rezerwacji_sal.Models.Reservation
+
+@{
+    ViewData["Title"] = "Szczegóły";
+}
+
+<h1>Szczegóły</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RoomId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartReservation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartReservation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EndReservation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndReservation)
+        </dd>
+    </dl>
+</div>
+<div>|
+
+</div>

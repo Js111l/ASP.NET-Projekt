@@ -1,0 +1,49 @@
+/* _content/Reservation_System_/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-l9ckpz4upi] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-l9ckpz4upi] {
+  color: #0077cc;
+}
+
+.btn-primary[b-l9ckpz4upi] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-l9ckpz4upi], .nav-pills .show > .nav-link[b-l9ckpz4upi] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-l9ckpz4upi] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-l9ckpz4upi] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-l9ckpz4upi] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-l9ckpz4upi] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-l9ckpz4upi] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
